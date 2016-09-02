@@ -84,9 +84,11 @@ angular.module('songhop.controllers', ['ionic', 'songhop.services'])
     /*
     Controller for our tab bar
     */
-    .controller('TabsCtrl', function($scope, Recommendations) {
+    .controller('TabsCtrl', function($scope, Recommendations, User) {
+        $scope.favCount = User.favoriteCount;
         // stop the audio when going to favorites page
         $scope.enteringFavorites = function() {
+            User.newFavorites = 0;
             Recommendations.haltAudio();
         }
 
