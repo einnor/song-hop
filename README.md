@@ -1,12 +1,43 @@
-Mastering the Ionic Framework: Learn to Build & Deploy Native Speed HTML5 Based Apps
-=======
+## Song-Hop
 
-This repository contains the markdown and code for the [Mastering Ionic course hosted on Thinkster.io](https://thinkster.io/ionic-framework-tutorial/). Pull requests are more than welcome for typos, code errors, etc :)
+This is a replica of the song-hop application created using [Ionic Framework](http://ionicframework.com/).
 
-### Getting the base project set up
-Navigate to the /code/ folder and run the command `npm install`. Then follow the rest of the course, starting at the section ["Starting our project"](https://thinkster.io/ionic-framework-tutorial/#starting-our-project).
+To use this, either create a new ionic project using the ionic node.js utility, or copy and paste this into an existing Cordova project and download a release of Ionic separately.
 
-If you want the source code of the final working Ionic application, make sure you have [Thinkster Pro](https://thinkster.io/pro) and then download it from the course page on Thinkster.
+### Getting Started
 
-### Need help?
-Feel free to [shoot me a tweet](https://twitter.com/ericsimons40), or if you have [Thinkster Pro](https://thinkster.io/pro), I'm also available on the Pro Slack channel for one-on-one support.
+Install ionic and cordova if you do not have them installed
+
+```bash
+$ sudo npm install -g ionic cordova
+```
+
+Set up the project
+
+```bash
+$ git clone https://github.com/einnor/song-hop
+$ cd song-hop
+$ npm install
+```
+
+Run the application on the browser
+
+```bash
+$ ionic serve
+```
+
+Then, to run it, cd into `myApp` and run:
+
+```bash
+$ ionic platform add ios
+$ ionic build ios
+$ ionic emulate ios
+```
+
+Substitute ios for android if not on a Mac, but if you can, the ios development toolchain is a lot easier to work with until you need to do anything custom to Android.
+
+## Demo
+URL coming soon
+
+## Issues
+Issues have been disabled on this repo, if you do find an issue or have a question consider posting it on the [Ionic Forum](http://forum.ionicframework.com/).  Or else if there is truly an error, follow our guidelines for [submitting an issue](http://ionicframework.com/contribute/#issues) to the main Ionic repository. On the other hand, pull requests are welcome here!
