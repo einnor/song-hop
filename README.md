@@ -26,7 +26,7 @@ Run the application on the browser
 $ ionic serve
 ```
 
-Then, to run it, cd into `myApp` and run:
+To run the ios platform, run:
 
 ```bash
 $ ionic platform add ios
@@ -34,10 +34,13 @@ $ ionic build ios
 $ ionic emulate ios
 ```
 
-Substitute ios for android if not on a Mac, but if you can, the ios development toolchain is a lot easier to work with until you need to do anything custom to Android.
+To run the android platform, run:
+
+```bash
+$ ionic platform add android
+$ ionic build android
+$ ionic emulate android
+```
 
 ## Demo
 URL coming soon
-
-## Issues
-Issues have been disabled on this repo, if you do find an issue or have a question consider posting it on the [Ionic Forum](http://forum.ionicframework.com/).  Or else if there is truly an error, follow our guidelines for [submitting an issue](http://ionicframework.com/contribute/#issues) to the main Ionic repository. On the other hand, pull requests are welcome here!
