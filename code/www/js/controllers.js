@@ -57,6 +57,11 @@ angular.module('songhop.controllers', ['ionic', 'songhop.services'])
     .controller('FavoritesCtrl', function($scope, User) {
         // get the list of favorites from our User service
         $scope.favorites = User.favorites;
+
+        // fired when we remove a song from favorites
+        $scope.removeSong = function(song, index) {
+            User.removeSongFromFavorites(song, index);
+        }
     })
 
 
