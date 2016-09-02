@@ -4,12 +4,32 @@ angular.module('songhop.controllers', ['ionic', 'songhop.services'])
     /*
     Controller for the discover page
     */
-    .controller('DiscoverCtrl', function($scope, $timeout, User, Recommendations) {
+    .controller('DiscoverCtrl', function($scope, $ionicLoading, $timeout, User, Recommendations) {
+        // helper functions for loading
+        var showLoading = function() {
+            $ionicLoading.show({
+                template: '<i class="ion-loading-c"></i>',
+                noBackdrop: true
+            });
+        }
+
+        var hideLoading = function() {
+            $ionicLoading.hide();
+        }
+
+        // set loading to true the first time while we fetch songd from the server
+        showLoading();
+
         // get our first songs
         Recommendations.init()
             .then(function() {
                 $scope.currentSong = Recommendations.queue[0];
                 Recommendations.playCurrentSong();
+            })
+            .then(function() {
+                // turn loading off
+                hideLoading();
+                $scope.currentSong.loaded = true;
             });
 
         // fired when we favorite / skip a song.
@@ -28,10 +48,14 @@ angular.module('songhop.controllers', ['ionic', 'songhop.services'])
             $timeout(function() {
                 // update the current song in the scope
                 $scope.currentSong = Recommendations.queue[0];
+                $scope.currentSong.loaded = false;
 
             }, 250);
 
-            Recommendations.playCurrentSong();
+            Recommendations.playCurrentSong()
+                .then(function() {
+                    $scope.currentSong.loaded = true;
+                });
         }
 
         // get the next album image, if none return empty string
